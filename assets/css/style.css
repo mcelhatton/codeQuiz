@@ -1,0 +1,16 @@
+header {
+    display: inline-flex;
+    
+}
+
+#high-scores {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+#time-remaining {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+}
