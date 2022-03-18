@@ -17,13 +17,18 @@
         </header>
         <main id="main-container">
             <h1>Coding Quiz Challenge</h1>
-            <div class="container">
-                <div class="box" data-number="1" data-state="hidden"></div>
-                <div class="box" data-number="Start Quiz" data-state="hidden"></div>
-                <div class="box" data-number="3" data-state="hidden"></div>
-                <div class="box" data-number="4" data-state="hidden"></div>
-                <div class="box" data-number="5" data-state="hidden"></div>
-                <div class="box" data-number="6" data-state="hidden"></div>
+            <h3 id="h3El">Click the start button to start the quiz.  Wrong answers will reduce your time remaining.  The quiz is done when you answer all questions 
+                correctly or you run out of time.  Good luck!
+            </h3>
+            <button id="start">Start Quiz!</button>
+
+            <p id="question"></p>
+
+            <div id="buttonDiv" class="buttons" style="display:none;">
+                <button id="btn1"><span id="choice1"></span></button>
+                <button id="btn2"><span id="choice2"></span></button>
+                <button id="btn3"><span id="choice3"></span></button>
+            </div>
         
             <script src="./assets/js/script.js"></script>
         </main>
