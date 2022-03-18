@@ -1,16 +1,43 @@
-header {
-    display: inline-flex;
-    
-}
+
 
 #high-scores {
     position: absolute;
     top: 40px;
-    left: 40px;
+    left: 60px;
+}
+
+#high-scores:hover {
+    color: purple;
 }
 
 #time-remaining {
     position: absolute;
     top: 40px;
-    right: 40px;
+    right: 60px;
 }
+
+#main-container {
+    margin-top: 200px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+main h1 {
+    text-align: center;
+}
+
+.box {
+    display: block;
+    float: left;
+    width: 31%;
+    height: 200px;
+    margin: 1%;
+    cursor: pointer;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: #093145;
+    text-align: center;
+    line-height: 200px;
+    font-size: 50px;
+    color: whitesmoke;
+  }

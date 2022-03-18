@@ -1,15 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
+<html>
+    <head lang="en">
+        <meta charset="utf-8">
+        <title>Colin's Code Quiz</title>
         <link rel="stylesheet" href="./assets/css/style.css"
     </head>
     <body>
         <header>
             <div class="header-div">
                 <p id="high-scores">View high scores</p>
-                <p>Time remaining:</p>
+            </div>
+            <div>
+                <p id="time-remaining">Time remaining: <span id="timer">60</span></p>
                 <p id="time-remaining"></p>
             </div>
         </header>
+        <main id="main-container">
+            <h1>Coding Quiz Challenge</h1>
+            <div class="container">
+                <div class="box" data-number="1" data-state="hidden"></div>
+                <div class="box" data-number="Start Quiz" data-state="hidden"></div>
+                <div class="box" data-number="3" data-state="hidden"></div>
+                <div class="box" data-number="4" data-state="hidden"></div>
+                <div class="box" data-number="5" data-state="hidden"></div>
+                <div class="box" data-number="6" data-state="hidden"></div>
+        
+            <script src="./assets/js/script.js"></script>
+        </main>
     </body>
 </html>
