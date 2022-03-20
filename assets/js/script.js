@@ -22,14 +22,6 @@ function buildHighScores() {
 }
 //console.log(result);
 
-// load high scores into ordered list
-
-var html = "";
-for (i = 0; i < result.length; i++) {
-  html += "<li>" + result[i] + "</li>";
-};
-document.getElementById("high-scores").innerHTML = html;
-
 
 function setCounterText() {
   timerEl.textContent = timeLeft;
@@ -189,16 +181,15 @@ var quiz = {
       else {
         quiz.hQn.innerHTML = `You have answered ${quiz.score} of ${quiz.data.length} correctly.`;
         quiz.hAns.innerHTML = "";
+        // save score prompt
         var saveScore = window.confirm('Would you like to save your score?');
         if (saveScore) {
           var userInitials = window.prompt("Please enter your initials!");
         }
+        // saving score and initials into arrays
         highScores.push(quiz.score);
-        //quizScore.push(highScores);
         initials.push(userInitials);
-        buildHighScores()
-        document.getElementById('start').style.display = 'block';
-        document.getElementById('start').textContent = 'Try Again!';
+        buildHighScores();
         console.log(highScores);
         console.log(initials);
         console.log(result);
@@ -214,3 +205,5 @@ var quiz = {
   }
 };
 window.addEventListener("load", quiz.init);
+
+
