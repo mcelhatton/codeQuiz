@@ -3,6 +3,7 @@
 var startButton = document.querySelector('#start');
 var timeLeft = 60;
 var timerEl = document.querySelector('#timer');
+var highScores = [];
 
 function setCounterText() {
   timerEl.textContent = timeLeft;
