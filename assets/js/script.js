@@ -20,8 +20,15 @@ function buildHighScores() {
     return result;
   }
 }
+//console.log(result);
 
-console.log(result);
+// load high scores into ordered list
+
+var html = "";
+for (i = 0; i < result.length; i++) {
+  html += "<li>" + result[i] + "</li>";
+};
+document.getElementById("high-scores").innerHTML = html;
 
 
 function setCounterText() {

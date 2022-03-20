@@ -1,12 +1,12 @@
 
 
-#high-scores {
+.headerEl {
     position: absolute;
     top: 40px;
     left: 60px;
 }
 
-#high-scores:hover {
+.headerEl:hover {
     color: purple;
 }
 
