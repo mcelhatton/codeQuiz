@@ -57,32 +57,32 @@ var quiz = {
     a : 3
   },
   {
-    q : "How much wood could a woodchuck chuck if a woodchuck would chuck wood?",
+    q : "What is a popular technology for software version control?",
     o : [
-      "400 pounds",
-      "550 pounds",
-      "700 pounds",
-      "750 pounds"
+      "Amazon web service",
+      "Google drive",
+      "Git",
+      "Dropbox",
     ],
     a : 2
   },
   {
-    q : "Which is the seventh planet from the sun?",
+    q : "What is the term for a software engineer that does front end and back end development?",
     o : [
-      "Uranus",
-      "Earth",
-      "Pluto",
-      "Mars"
+      "Full stack",
+      "End to end",
+      "Master engineer",
+      "None of the above"
     ],
     a : 0
   },
   {
-    q : "Which is the largest ocean on Earth?",
+    q : "What is a funny HBO show about a software startup?",
     o : [
-      "Atlantic Ocean",
-      "Indian Ocean",
-      "Arctic Ocean",
-      "Pacific Ocean"
+      "Beverly Hills 90210",
+      "Devcon 2050",
+      "Tech start valley",
+      "Silicon Valley",
     ],
     a : 3
   }
