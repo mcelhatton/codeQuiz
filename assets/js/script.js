@@ -1,18 +1,33 @@
 
 
 var startButton = document.querySelector('#start');
-var count = 0;
+var timeLeft = 60;
 var timerEl = document.querySelector('#timer');
 
 function setCounterText() {
-  timerEl.textContent = count;
+  timerEl.textContent = timeLeft;
 }
 
 startButton.addEventListener('click', function() {
- document.getElementById('quizWrap').style.display = 'block';
- document.getElementById('start').style.display = 'none';
- document.getElementById('h3El').style.display = 'none';
- document.getElementById('buttonDiv').style.display = 'block';
+
+    var timeInterval = setInterval(function() {
+      timerEl.textContent = timeLeft;
+      timeLeft--;
+      if (timeLeft > 1) {
+        timerEl.textContent = timeLeft + ' seconds remaining';
+      } else if (timeLeft === 1 ) {
+        timeLeft.textContent = timeLeft + ' second remaining';
+      } else {
+        timerEl.textContent = "";
+        clearInterval(timeInterval);
+        setCounterText();
+      }
+    }, 1000);
+  
+  document.getElementById('quizWrap').style.display = 'block';
+  document.getElementById('start').style.display = 'none';
+  document.getElementById('h3El').style.display = 'none';
+  document.getElementById('buttonDiv').style.display = 'block';
 });
 
 var quiz = {
@@ -137,6 +152,7 @@ var quiz = {
       option.classList.add("correct");
     } else {
       option.classList.add("wrong");
+      timeLeft = timeLeft - 5;
     }
 
     // (D3) NEXT QUESTION OR END GAME
