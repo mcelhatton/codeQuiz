@@ -6,6 +6,24 @@ var timerEl = document.querySelector('#timer');
 var highScores = [];
 var initials = [];
 
+//building key value pairs array for highScores
+var i;
+var currentKey;
+var currentValue;
+var result = {};
+
+function buildHighScores() {
+  for (i = 0; i < highScores.length; i++) {
+    currentKey = initials[i];
+    currentValue = highScores[i];
+    result[currentKey] = currentValue;
+    return result;
+  }
+}
+
+console.log(result);
+
+
 function setCounterText() {
   timerEl.textContent = timeLeft;
 }
@@ -171,8 +189,10 @@ var quiz = {
         highScores.push(quiz.score);
         //quizScore.push(highScores);
         initials.push(userInitials);
+        buildHighScores()
         console.log(highScores);
         console.log(initials);
+        console.log(result);
       }
     }, 500);
   },
