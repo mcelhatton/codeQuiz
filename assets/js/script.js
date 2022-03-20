@@ -43,7 +43,7 @@ startButton.addEventListener('click', function() {
         setCounterText();
       }
     }, 1000);
-  
+
   document.getElementById('quizWrap').style.display = 'block';
   document.getElementById('start').style.display = 'none';
   document.getElementById('h3El').style.display = 'none';
@@ -190,6 +190,8 @@ var quiz = {
         //quizScore.push(highScores);
         initials.push(userInitials);
         buildHighScores()
+        document.getElementById('start').style.display = 'block';
+        document.getElementById('start').textContent = 'Try Again!';
         console.log(highScores);
         console.log(initials);
         console.log(result);
