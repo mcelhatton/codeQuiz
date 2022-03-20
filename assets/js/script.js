@@ -4,6 +4,7 @@ var startButton = document.querySelector('#start');
 var timeLeft = 60;
 var timerEl = document.querySelector('#timer');
 var highScores = [];
+var initials = [];
 
 function setCounterText() {
   timerEl.textContent = timeLeft;
@@ -163,8 +164,17 @@ var quiz = {
       else {
         quiz.hQn.innerHTML = `You have answered ${quiz.score} of ${quiz.data.length} correctly.`;
         quiz.hAns.innerHTML = "";
+        var saveScore = window.confirm('Would you like to save your score?');
+        if (saveScore) {
+          var userInitials = window.prompt("Please enter your initials!");
+        }
+        highScores.push(quiz.score);
+        //quizScore.push(highScores);
+        initials.push(userInitials);
+        console.log(highScores);
+        console.log(initials);
       }
-    }, 1000);
+    }, 500);
   },
 
   // (E) RESTART QUIZ
