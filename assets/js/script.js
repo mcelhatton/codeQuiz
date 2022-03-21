@@ -1,7 +1,7 @@
 
 
 var startButton = document.querySelector('#start');
-var timeLeft = 60;
+var timeLeft = 10;
 var timerEl = document.querySelector('#timer');
 var highScores = [];
 var initials = [];
@@ -28,10 +28,6 @@ viewResults.addEventListener('click', function() {
   list.innerHTML = data.map(i => `<li>${i}</li>`).join('')
 });
 
-function setCounterText() {
-  timerEl.textContent = timeLeft;
-}
-
 startButton.addEventListener('click', function() {
 
     var timeInterval = setInterval(function() {
@@ -44,8 +40,12 @@ startButton.addEventListener('click', function() {
       } else {
         timerEl.textContent = "";
         clearInterval(timeInterval);
-        setCounterText();
+        document.getElementById('quizWrap').style.display = 'none';
+        document.getElementById('start').style.display = 'block';
+        alert("You have exceeded the time allowed!");
+        timeLeft = 60;
       }
+
     }, 1000);
 
   document.getElementById('quizWrap').style.display = 'block';
@@ -197,6 +197,7 @@ var quiz = {
         console.log(highScores);
         console.log(initials);
         console.log(result);
+        clearInterval(timeInterval);
       }
     }, 500);
   },
