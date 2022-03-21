@@ -33,9 +33,9 @@ startButton.addEventListener('click', function() {
       timerEl.textContent = timeLeft;
       timeLeft--;
       if (timeLeft > 1) {
-        timerEl.textContent = timeLeft + ' seconds remaining';
+        timerEl.textContent = timeLeft;
       } else if (timeLeft === 1 ) {
-        timeLeft.textContent = timeLeft + ' second remaining';
+        timeLeft.textContent = timeLeft;
       } else {
         timerEl.textContent = "";
         clearInterval(timeInterval);
