@@ -21,7 +21,12 @@ function buildHighScores() {
   }
 }
 //console.log(result);
+var viewResults = document.querySelector('#viewHighScores');
+var list = document.getElementById('list');
 
+viewResults.addEventListener('click', function() {
+  list.innerHTML = data.map(i => `<li>${i}</li>`).join('')
+});
 
 function setCounterText() {
   timerEl.textContent = timeLeft;
@@ -46,7 +51,6 @@ startButton.addEventListener('click', function() {
   document.getElementById('quizWrap').style.display = 'block';
   document.getElementById('start').style.display = 'none';
   document.getElementById('h3El').style.display = 'none';
-  document.getElementById('buttonDiv').style.display = 'block';
 });
 
 var quiz = {
@@ -111,7 +115,7 @@ var quiz = {
   hQn: null, // HTML question wrapper
   hAns: null, // HTML answers wrapper
 
-  // (A3) GAME FLAGS
+  // (A3) QUIZ FLAGS
   now: 0, // current question
   score: 0, // current score
 
