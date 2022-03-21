@@ -1,7 +1,7 @@
 
 
 var startButton = document.querySelector('#start');
-var timeLeft = 10;
+var timeLeft = 60;
 var timerEl = document.querySelector('#timer');
 var highScores = [];
 var initials = [];
