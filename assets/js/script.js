@@ -20,13 +20,28 @@ function buildHighScores() {
     return result;
   }
 }
+
 //console.log(result);
 var viewResults = document.querySelector('#viewHighScores');
 var list = document.getElementById('list');
 
-viewResults.addEventListener('click', function() {
-  list.innerHTML = data.map(i => `<li>${i}</li>`).join('')
-});
+function makeList() {
+  result,
+  listContainer = document.createElement('div'),
+  listElement = document.createElement('ul'),
+  numberOfListItems = result.length,
+  resultItem,
+  i;
+
+  document.getElementById('main')[0].appendChild(listContainer);
+  listContainer.appendChild(listElement);
+
+  for (i = 0; i < numberOfListItems; ++i) {
+    listItem = document.createElement('li');
+    listItem.innerHTML = result[i];
+    listElement.appendChild(listItem);
+  }
+}
 
 startButton.addEventListener('click', function() {
 
@@ -197,7 +212,6 @@ var quiz = {
         console.log(highScores);
         console.log(initials);
         console.log(result);
-        clearInterval(timeInterval);
       }
     }, 500);
   },
