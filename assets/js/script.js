@@ -11,6 +11,7 @@ var i;
 var currentKey;
 var currentValue;
 var result = {};
+var resultsView;
 
 function buildHighScores() {
   for (i = 0; i < highScores.length; i++) {
@@ -191,9 +192,11 @@ var quiz = {
         highScores.push(quiz.score);
         initials.push(userInitials);
         buildHighScores();
+        var resultsView = localStorage.setItem("result", JSON.stringify(result));
         console.log(highScores);
         console.log(initials);
         console.log(result);
+        console.log(resultsView);
       }
     }, 500);
   },
