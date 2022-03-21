@@ -53,6 +53,10 @@ main h1 {
     color: whitesmoke;
   }
 
+  #resultPrint {
+    text-align: center;
+  }
+
   /* (A) WRAPPER */
 #quizWrap {
     max-width: 600px;

@@ -25,24 +25,6 @@ function buildHighScores() {
 var viewResults = document.querySelector('#viewHighScores');
 var list = document.getElementById('list');
 
-function makeList() {
-  result,
-  listContainer = document.createElement('div'),
-  listElement = document.createElement('ul'),
-  numberOfListItems = result.length,
-  resultItem,
-  i;
-
-  document.getElementById('main')[0].appendChild(listContainer);
-  listContainer.appendChild(listElement);
-
-  for (i = 0; i < numberOfListItems; ++i) {
-    listItem = document.createElement('li');
-    listItem.innerHTML = result[i];
-    listElement.appendChild(listItem);
-  }
-}
-
 startButton.addEventListener('click', function() {
 
     var timeInterval = setInterval(function() {
