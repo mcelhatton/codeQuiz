@@ -6,40 +6,26 @@ var timerEl = document.querySelector('#timer');
 var highScores = [];
 var initials = [];
 
-//building key value pairs array for highScores
-var i;
-var currentKey;
-var currentValue;
 var result = [];
 var resultParse = localStorage.getItem('result');
 var scoresView = [];
 
-
 var userEntryFormEl = $('#saveHighScoreForm');
 var scoreListEl = $('#quizHighScoreList');
 
-function logHighScores(event) {
+function loadHighScores(event) {
   event.preventDefault();
-  //document.getElementById('quizHighScoreList').style.display = 'block';
-
-  //user input from form
-  var userEntryItem = $('input[name="userInput"]').val();
+  document.getElementById('quizHighScoreList').style.display = 'block';
 
   //building li element and loading user input into text
   var highScoreListItemEl = $(
     '<li class="flex-row justify-space-between align-center p-2 bg-light text-dark">'
     );
-    highScoreListItemEl.text(userEntryItem);
+    var showResults = localStorage.getItem('result')
+    highScoreListItemEl.text(showResults);
 
   // print to page
   scoreListEl.append(highScoreListItemEl);
-
-  //clear the form input element
-  $('input[name"userInput"]').val('');
-
-  console.log(userInput);
-
-  userEntryFormEl.on('submit', handleFormSubmit);
 }
 
 //console.log(result);
@@ -217,12 +203,7 @@ var quiz = {
         }, 1000); 
       }
       
-      }, 1000);
-      
-        
-        // saving score and initials into arrays
-        //highScores.push(quiz.score);
-        //initials.push(userInitials);
+      }, 750);
         //var resultsView = localStorage.setItem("result", JSON.stringify(result));
         //var previousHighScores = JSON.parse(localStorage.getItem('result'))
       }
