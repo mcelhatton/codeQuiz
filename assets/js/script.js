@@ -10,16 +10,36 @@ var initials = [];
 var i;
 var currentKey;
 var currentValue;
-var result = {};
-var resultsView;
+var result = [];
+var resultParse = localStorage.getItem('result');
+var scoresView = [];
 
-function buildHighScores() {
-  for (i = 0; i < highScores.length; i++) {
-    currentKey = initials[i];
-    currentValue = highScores[i];
-    result[currentKey] = currentValue;
-    return result;
-  }
+
+var userEntryFormEl = $('#saveHighScoreForm');
+var scoreListEl = $('#quizHighScoreList');
+
+function logHighScores(event) {
+  event.preventDefault();
+  //document.getElementById('quizHighScoreList').style.display = 'block';
+
+  //user input from form
+  var userEntryItem = $('input[name="userInput"]').val();
+
+  //building li element and loading user input into text
+  var highScoreListItemEl = $(
+    '<li class="flex-row justify-space-between align-center p-2 bg-light text-dark">'
+    );
+    highScoreListItemEl.text(userEntryItem);
+
+  // print to page
+  scoreListEl.append(highScoreListItemEl);
+
+  //clear the form input element
+  $('input[name"userInput"]').val('');
+
+  console.log(userInput);
+
+  userEntryFormEl.on('submit', handleFormSubmit);
 }
 
 //console.log(result);
@@ -37,11 +57,12 @@ startButton.addEventListener('click', function() {
         timeLeft.textContent = timeLeft;
       } else {
         timerEl.textContent = "";
-        clearInterval(timeInterval);
+        clearInterval(timeLeft);
         document.getElementById('quizWrap').style.display = 'none';
         document.getElementById('start').style.display = 'block';
         alert("You have exceeded the time allowed!");
         timeLeft = 60;
+        location.reload();
       }
 
     }, 1000);
@@ -173,7 +194,7 @@ var quiz = {
       option.classList.add("correct");
     } else {
       option.classList.add("wrong");
-      timeLeft = timeLeft - 5;
+      timeLeft = timeLeft - 10;
     }
 
     // (D3) NEXT QUESTION OR END GAME
@@ -183,23 +204,31 @@ var quiz = {
       else {
         quiz.hQn.innerHTML = `You have answered ${quiz.score} of ${quiz.data.length} correctly.`;
         quiz.hAns.innerHTML = "";
+        clearInterval(timeLeft);
+
         // save score prompt
-        var saveScore = window.confirm('Would you like to save your score?');
-        if (saveScore) {
-          var userInitials = window.prompt("Please enter your initials!");
-        }
+       setTimeout(function() { var saveScore = window.confirm('Would you like to save your score?'); 
+       if (saveScore) {
+        document.getElementById('quizWrap').style.display = 'none';
+        var userInitials = window.prompt("Please enter your initials!");
+        result = localStorage.setItem(userInitials, quiz.score);
+        setTimeout(function() {
+          location.reload();
+        }, 1000); 
+      }
+      
+      }, 1000);
+      
+        
         // saving score and initials into arrays
-        highScores.push(quiz.score);
-        initials.push(userInitials);
-        buildHighScores();
-        var resultsView = localStorage.setItem("result", JSON.stringify(result));
-        console.log(highScores);
-        console.log(initials);
-        console.log(result);
-        console.log(resultsView);
+        //highScores.push(quiz.score);
+        //initials.push(userInitials);
+        //var resultsView = localStorage.setItem("result", JSON.stringify(result));
+        //var previousHighScores = JSON.parse(localStorage.getItem('result'))
       }
     }, 500);
   },
+
 
   // (E) RESTART QUIZ
   reset : () => {
