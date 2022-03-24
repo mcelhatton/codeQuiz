@@ -43,4 +43,4 @@ W3 schools tutorials and github for help and reference.
 
 ## Link to depolyed page
 
-[Portfolio Webpage]( https://cpriyam90.github.io/First-Portfolio-Assignment/)
+[Colin Code Quiz Link - Click here!]( https://mcelhatton.github.io/codeQuiz/)
